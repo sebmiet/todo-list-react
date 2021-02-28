@@ -13,6 +13,7 @@ const CreateTodo = (props) => {
     props.addTodo({
       id: todoId,
       text: input,
+      editTodo: false,
       isCompleted: false,
       createTime: new Date(),
       wasEdited: false,
