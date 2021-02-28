@@ -5,8 +5,25 @@ import CreateTodo from "./CreateTodo";
 import EditTodo from "./EditTodo";
 import Todo from "./Todo";
 
-const TodoList = () => {
+const TodoList = ({ data }) => {
   const [todos, setTodos] = useState([]);
+  const [todoId, setTodoId] = useState(0);
+
+  const fetchedData = [...data];
+  const fetchedDataAdjustment = () => {
+    const updatedData = fetchedData.map((item) => {
+      let todo = {
+        id: setTodoId(item.id),
+        text: item.title,
+        isCompleted: item.completed,
+      };
+
+      addTodo(todo);
+      return todo;
+    });
+
+    setTodos(updatedData);
+  };
 
   const addTodo = (todo) => {
     //Checking if input is empty or has just white spaces
@@ -15,7 +32,7 @@ const TodoList = () => {
     }
     const updatedTodos = [todo, ...todos];
     setTodos(updatedTodos);
-    console.log([...todos]);
+    setTodoId(todoId + 1);
   };
 
   const handleEdit = (id) => {
@@ -85,32 +102,35 @@ const TodoList = () => {
         // animate={{ opacity: 1 }}
         // transition={{ duration: 2.5 }}
       >
+        <button className="" onClick={fetchedDataAdjustment}>
+          Dodaj dane
+        </button>
         <motion.h3
           className="title"
-          initial={{ opacity: 0, x: "-50vw" }}
+          initial={{ opacity: 0, x: "-30vw" }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 1,
+            duration: 0.5,
             delay: 0.4,
-            x: { type: "spring", stiffness: 250 },
+            x: { type: "spring", stiffness: 150 },
           }}
         >
           Time to complete some Quests...
         </motion.h3>
         <motion.h4
           className="subtitle"
-          initial={{ opacity: 0, x: "50vw" }}
+          initial={{ opacity: 0, x: "30vw" }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 1,
-            delay: 1.8,
-            x: { type: "spring", stiffness: 150 },
+            duration: 0.5,
+            delay: 1,
+            x: { type: "spring", stiffness: 100 },
           }}
         >
-          Isn't life just a RPG game?
+          Isn't life just some RPG game?
         </motion.h4>
       </div>
-      <CreateTodo addTodo={addTodo} />
+      <CreateTodo addTodo={addTodo} todoId={todoId} />
       {todosMapping}
     </div>
   );

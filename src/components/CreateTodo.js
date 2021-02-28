@@ -2,9 +2,8 @@ import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
-const CreateTodo = (props) => {
+const CreateTodo = ({ addTodo, todoId }) => {
   const [input, setInput] = useState("");
-  const [todoId, setTodoId] = useState(0);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -12,7 +11,7 @@ const CreateTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTodo({
+    addTodo({
       id: todoId,
       text: input,
       editTodo: false,
@@ -21,7 +20,7 @@ const CreateTodo = (props) => {
       wasEdited: false,
       lastEdit: null,
     });
-    setTodoId(todoId + 1);
+
     setInput("");
   };
 
@@ -29,7 +28,7 @@ const CreateTodo = (props) => {
     <motion.form
       className="create-todo-container"
       onSubmit={handleSubmit}
-      initial={{ opacity: 0, x: "100vh" }}
+      initial={{ opacity: 0, x: "30vw" }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 80 }}
     >
@@ -40,7 +39,15 @@ const CreateTodo = (props) => {
         placeholder="Add some quest to your diary... ;)"
         value={input}
       />
-      <button className="create-todo-button">Add Todo</button>
+      <motion.button
+        className="create-todo-button"
+        whileHover={{
+          color: "#e2e2e2",
+          transition: { duration: 1.5, yoyo: Infinity },
+        }}
+      >
+        Add Todo
+      </motion.button>
     </motion.form>
   );
 };

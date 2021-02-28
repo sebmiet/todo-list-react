@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { whileHover } from "framer-motion";
 
 import { FaEdit, FaTimes, FaCheck } from "react-icons/fa";
 
@@ -11,7 +10,7 @@ const Todo = ({ todo, handleDelete, handleEdit, handleComplete }) => {
         className={todo.isCompleted ? "todo-item-completed" : "todo-item"}
         initial={{ opacity: 0, x: 500 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ fade: "easeIn", duration: 0.3 }}
+        transition={{ fade: "easeIn", duration: 0.3, type: "spring" }}
         exit={{ opacity: 0, transition: { fade: "easeIn", duration: 0.3 } }}
       >
         <div
