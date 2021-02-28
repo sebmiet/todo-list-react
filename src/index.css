@@ -96,6 +96,10 @@
 .icon-edit {
   font-size: 1.5rem;
   color: black;
+  transition: 0.5s;
+}
+.icon-edit:hover {
+  color: #e2e2e2;
 }
 .icon-done {
   font-size: 1.5rem;
@@ -106,6 +110,10 @@
   margin-left: 5px;
   font-size: 1.5rem;
   color: black;
+  transition: 0.5s;
+}
+.icon-close:hover {
+  color: red;
 }
 .create-todo-container {
   margin: 25px 10px;
@@ -158,9 +166,9 @@
   color: rgb(252, 176, 69);
   background: transparent;
 }
-.edit-todo-input::placeholder {
+/* .edit-todo-input::placeholder {
   color: ;
-}
+} */
 .edit-todo-button {
   height: 50px;
   text-transform: uppercase;

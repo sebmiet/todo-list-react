@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 import CreateTodo from "./CreateTodo";
 import EditTodo from "./EditTodo";
@@ -78,9 +79,36 @@ const TodoList = () => {
 
   return (
     <div className="todo-container">
-      <div className="suppose-to-be-funny-text-container">
-        <h3 className="title">Time to complete some Quests...</h3>
-        <h4 className="subtitle">Isn't life just a RPG game?</h4>
+      <div
+        className="suppose-to-be-funny-text-container"
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ duration: 2.5 }}
+      >
+        <motion.h3
+          className="title"
+          initial={{ opacity: 0, x: "-50vw" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.4,
+            x: { type: "spring", stiffness: 250 },
+          }}
+        >
+          Time to complete some Quests...
+        </motion.h3>
+        <motion.h4
+          className="subtitle"
+          initial={{ opacity: 0, x: "50vw" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            delay: 1.8,
+            x: { type: "spring", stiffness: 150 },
+          }}
+        >
+          Isn't life just a RPG game?
+        </motion.h4>
       </div>
       <CreateTodo addTodo={addTodo} />
       {todosMapping}

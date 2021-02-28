@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { motion } from "framer-motion";
+
 const CreateTodo = (props) => {
   const [input, setInput] = useState("");
   const [todoId, setTodoId] = useState(0);
@@ -24,7 +26,13 @@ const CreateTodo = (props) => {
   };
 
   return (
-    <form className="create-todo-container" onSubmit={handleSubmit}>
+    <motion.form
+      className="create-todo-container"
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, x: "100vh" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 80 }}
+    >
       <input
         className="create-todo-input"
         type="text"
@@ -33,7 +41,7 @@ const CreateTodo = (props) => {
         value={input}
       />
       <button className="create-todo-button">Add Todo</button>
-    </form>
+    </motion.form>
   );
 };
 

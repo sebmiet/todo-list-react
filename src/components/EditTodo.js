@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const EditTodo = ({ todo, handleUpdate, editInputFocus }) => {
   const [input, setInput] = useState(todo.text);
@@ -8,10 +9,14 @@ const EditTodo = ({ todo, handleUpdate, editInputFocus }) => {
   };
 
   return (
-    <form className="edit-todo-container">
+    <motion.form
+      className="edit-todo-container"
+      initial={{ opacity: 0, x: -700 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ fade: "easeIn", duration: 0.3 }}
+    >
       <input
         className="edit-todo-input"
-        ref={editInputFocus}
         type="text"
         // placeholder={todo.text}
         value={input}
@@ -23,7 +28,7 @@ const EditTodo = ({ todo, handleUpdate, editInputFocus }) => {
       >
         Update
       </button>
-    </form>
+    </motion.form>
   );
 };
 export default EditTodo;
