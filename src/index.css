@@ -11,12 +11,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  background: linear-gradient(
-    90deg,
-    rgb(0, 0, 0) 0%,
-    rgb(29, 72, 112) 50%,
-    rgb(0, 0, 0) 100%
-  );
+  background: radial-gradient(rgb(29, 72, 112) 0%, rgb(0, 0, 0) 100%);
 }
 .todo-container {
   position: relative;
@@ -32,7 +27,6 @@
   border-radius: 15px;
   align-items: center;
   padding-bottom: 30px;
-  /* backdrop-filter: blur(10px); */
 }
 .suppose-to-be-funny-text-container {
   padding: 25px 35px;
@@ -71,9 +65,41 @@
   );
   cursor: pointer;
 }
+.todo-item-complete-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 85%;
+  text-align: left;
+}
+.todo-item-completed {
+  display: flex;
+  justify-content: space-between;
+  color: green;
+  text-transform: uppercase;
+  text-decoration: line-through;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  text-align: center;
+  align-items: center;
+  margin: 5px 5px 5px 5px;
+  height: 50px;
+  width: 90%;
+  border-radius: 4px;
+  background: rgb(72, 176, 11);
+  background: linear-gradient(90deg, rgb(38, 210, 0) 0%, rgb(38, 190, 0) 100%);
+  cursor: pointer;
+}
 
 .icon-edit {
   font-size: 1.5rem;
+  color: black;
+}
+.icon-done {
+  font-size: 1.5rem;
+  font-weight: bold;
   color: black;
 }
 .icon-close {
@@ -104,6 +130,44 @@
   width: 25%;
   color: black;
   padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 176, 69, 1) 0%,
+    rgba(200, 122, 40, 1) 100%
+  );
+}
+.edit-todo-container {
+  margin: 5px 5px 5px 5px;
+  width: 90%;
+}
+.edit-todo-input {
+  height: 50px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 11px 32px 13px 8px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid rgba(252, 176, 69, 1);
+  outline: none;
+  width: 75%;
+  color: rgb(252, 176, 69);
+  background: transparent;
+}
+.edit-todo-input::placeholder {
+  color: ;
+}
+.edit-todo-button {
+  height: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 25%;
+  color: black;
+  /* padding: 16px; */
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;

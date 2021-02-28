@@ -1,20 +1,29 @@
 import React from "react";
-import { VscEdit } from "react-icons/vsc";
-import { VscError } from "react-icons/vsc";
+import { FaEdit, FaTimes, FaCheck } from "react-icons/fa";
 
-const Todo = ({ todo, handleDelete, handleEdit }) => {
+const Todo = ({ todo, handleDelete, handleEdit, handleComplete }) => {
   return (
     <>
-      <div className="todo-item">
-        <div>
+      <div className={todo.isCompleted ? "todo-item-completed" : "todo-item"}>
+        <div
+          onClick={() => handleComplete(todo.id)}
+          className="todo-item-complete-text"
+        >
           <p>{todo.text}</p>
         </div>
         <div>
-          <span onClick={() => handleEdit(todo.id)} className="icon-edit">
-            <VscEdit />
-          </span>
+          {!todo.isCompleted && (
+            <span onClick={() => handleEdit(todo.id)} className="icon-edit">
+              <FaEdit />
+            </span>
+          )}
+          {todo.isCompleted && (
+            <span className="icon-done">
+              <FaCheck />
+            </span>
+          )}
           <span onClick={() => handleDelete(todo.id)} className="icon-close">
-            <VscError />
+            <FaTimes />
           </span>
         </div>
       </div>
