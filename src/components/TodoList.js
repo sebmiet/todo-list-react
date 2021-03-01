@@ -116,6 +116,11 @@ const TodoList = ({ data }) => {
               delay: 2,
               y: { type: "spring", stiffness: 150 },
             }}
+            whileHover={{
+              color: ["#000000", "#e2e2e2", "#000000"],
+              boxShadow: "0 0 8px",
+              transition: { duration: 3.5, repeat: Infinity },
+            }}
             className="button-fetched-data"
             onClick={() => {
               fetchedDataAdjustment();
