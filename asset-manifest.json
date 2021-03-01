@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/toodo-list-react/static/css/main.6c8927ca.chunk.css",
+    "main.js": "/toodo-list-react/static/js/main.f03697f5.chunk.js",
+    "main.js.map": "/toodo-list-react/static/js/main.f03697f5.chunk.js.map",
+    "runtime-main.js": "/toodo-list-react/static/js/runtime-main.2766ef91.js",
+    "runtime-main.js.map": "/toodo-list-react/static/js/runtime-main.2766ef91.js.map",
+    "static/js/2.0d52e2e0.chunk.js": "/toodo-list-react/static/js/2.0d52e2e0.chunk.js",
+    "static/js/2.0d52e2e0.chunk.js.map": "/toodo-list-react/static/js/2.0d52e2e0.chunk.js.map",
+    "index.html": "/toodo-list-react/index.html",
+    "static/css/main.6c8927ca.chunk.css.map": "/toodo-list-react/static/css/main.6c8927ca.chunk.css.map",
+    "static/js/2.0d52e2e0.chunk.js.LICENSE.txt": "/toodo-list-react/static/js/2.0d52e2e0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2766ef91.js",
+    "static/js/2.0d52e2e0.chunk.js",
+    "static/css/main.6c8927ca.chunk.css",
+    "static/js/main.f03697f5.chunk.js"
+  ]
+}
