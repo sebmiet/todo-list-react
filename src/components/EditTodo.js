@@ -8,9 +8,14 @@ const EditTodo = ({ todo, handleUpdate }) => {
     setInput(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleUpdate(todo.id, input);
+  };
+
   return (
     <motion.form
-      key={todo.id}
+      onSubmit={handleSubmit}
       className="edit-todo-container"
       initial={{ opacity: 0, x: -700 }}
       animate={{ opacity: 1, x: 0 }}
@@ -24,11 +29,11 @@ const EditTodo = ({ todo, handleUpdate }) => {
       />
       <motion.button
         whileHover={{
-          color: "#e2e2e2",
-          transition: { duration: 1, yoyo: Infinity },
+          color: ["#000000", "#e2e2e2", "#000000"],
+          transition: { duration: 2.5, repeat: Infinity },
         }}
         className="edit-todo-button"
-        onClick={() => handleUpdate(todo.id, input)}
+        // onClick={() => handleUpdate(todo.id, input)}
       >
         Update
       </motion.button>

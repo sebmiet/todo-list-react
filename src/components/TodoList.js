@@ -8,24 +8,28 @@ import Todo from "./Todo";
 const TodoList = ({ data }) => {
   const [todos, setTodos] = useState([]);
   const [todoId, setTodoId] = useState(0);
+  const [dataBtn, setDataBtn] = useState(true);
 
-  const fetchedData = [...data];
+  const fetchedData = [...data].filter((item) => item.userId === 1);
+
   const fetchedDataAdjustment = () => {
-    const updatedData = fetchedData.map((item) => {
-      let todo = {
-        id: setTodoId(item.id),
-        text: item.title,
-        isCompleted: item.completed,
+    let data = fetchedData.map((todo) => {
+      todo = {
+        id: todo.id + 10000,
+        text: todo.title,
+        editTodo: false,
+        isCompleted: todo.completed,
+        createTime: new Date(),
+        wasEdited: false,
+        lastEdit: null,
       };
-
-      addTodo(todo);
       return todo;
     });
-
-    setTodos(updatedData);
+    const updatedTodos = [...todos].concat(data);
+    setTodos(updatedTodos);
   };
 
-  const addTodo = (todo) => {
+  const addTodo = async (todo) => {
     //Checking if input is empty or has just white spaces
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -75,6 +79,7 @@ const TodoList = ({ data }) => {
     if (todo.editTodo) {
       return (
         <EditTodo
+          key={todo.id + "...editing"}
           todo={todo}
           todos={todos}
           setTodos={setTodos}
@@ -102,9 +107,24 @@ const TodoList = ({ data }) => {
         // animate={{ opacity: 1 }}
         // transition={{ duration: 2.5 }}
       >
-        <button className="" onClick={fetchedDataAdjustment}>
-          Dodaj dane
-        </button>
+        {dataBtn && (
+          <motion.button
+            initial={{ opacity: 0, y: -200 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 2,
+              y: { type: "spring", stiffness: 150 },
+            }}
+            className="button-fetched-data"
+            onClick={() => {
+              fetchedDataAdjustment();
+              setDataBtn(false);
+            }}
+          >
+            click for free dummy data :)
+          </motion.button>
+        )}
         <motion.h3
           className="title"
           initial={{ opacity: 0, x: "-30vw" }}

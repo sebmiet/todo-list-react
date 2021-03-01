@@ -20,7 +20,6 @@ const CreateTodo = ({ addTodo, todoId }) => {
       wasEdited: false,
       lastEdit: null,
     });
-
     setInput("");
   };
 
@@ -42,8 +41,8 @@ const CreateTodo = ({ addTodo, todoId }) => {
       <motion.button
         className="create-todo-button"
         whileHover={{
-          color: "#e2e2e2",
-          transition: { duration: 1.5, yoyo: Infinity },
+          color: ["#000000", "#e2e2e2", "#000000"],
+          transition: { duration: 2.5, repeat: Infinity },
         }}
       >
         Add Todo
