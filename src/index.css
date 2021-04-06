@@ -158,9 +158,11 @@ html {
   font-weight: bold;
   width: auto;
   color: black;
-  padding: 16px;
+  font-size: 1rem;
+  padding: 1rem;
   margin-bottom: 25px;
-  margin-left: 30%;
+  top: 0;
+  left: 50%;
   border: none;
   border-radius: 4px 4px 4px 4px;
   cursor: pointer;
@@ -176,15 +178,6 @@ html {
   width: 90%;
 }
 .edit-todo-input {
-  /* max-height: 3.125rem;
-  padding: 0.875rem 2rem 0.875rem 1rem;
-  font-size: 0.85rem;
-  border-radius: 4px 0 0 4px;
-  border: 2px solid rgba(252, 176, 69, 1);
-  outline: none;
-  width: 75%;
-  color: #fff;
-  background: transparent; */
   height: 3.125rem;
   text-transform: uppercase;
   font-size: 0.85rem;

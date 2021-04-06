@@ -101,12 +101,7 @@ const TodoList = ({ data }) => {
 
   return (
     <div className="todo-container">
-      <div
-        className="suppose-to-be-funny-text-container"
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // transition={{ duration: 2.5 }}
-      >
+      <div className="suppose-to-be-funny-text-container">
         {dataBtn && (
           <motion.button
             initial={{ opacity: 0, y: -200 }}
